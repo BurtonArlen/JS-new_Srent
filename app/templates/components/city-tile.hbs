@@ -1,2 +1,11 @@
-<li>{{#link-to 'city' city.id}}{{city.name}}{{/link-to}}
-<button {{action 'delete' city}}>Delete</button></li>
+<h4>Location:  {{fullLocation}}</h4>
+
+Rentals available in {{city.name}}:
+
+<ul>
+  {{#each sortedRentals as |rental|}}
+    <li>{{#link-to 'rental' rental.id}}{{rental.owner}}'s {{rental.type}}{{/link-to}}</li>
+  {{/each}}
+</ul>
+
+<button {{action 'destroyCity' city}}>Delete</button>
